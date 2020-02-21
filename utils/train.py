@@ -60,13 +60,13 @@ def evaluate(config, model=None, test_loader=None):
             test_set,
             batch_size=len(test_set),
             collate_fn=test_set.collate_fn)
-    if not config["no_cuda"]:
-        torch.cuda.set_device(config["gpu_no"])
+   # if not config["no_cuda"]:
+     #   torch.cuda.set_device(config["gpu_no"])
     if not model:
         model = config["model_class"](config)
         model.load(config["input_file"])
     if not config["no_cuda"]:
-        torch.cuda.set_device(config["gpu_no"])
+     #   torch.cuda.set_device(config["gpu_no"])
         model.cuda()
     model.eval()
     criterion = nn.CrossEntropyLoss()
@@ -122,6 +122,7 @@ def train(config):
 
     for epoch_idx in range(config["n_epochs"]):
         for batch_idx, (model_in, labels) in enumerate(train_loader):
+            print("début d'entrainement")
             model.train()
             optimizer.zero_grad()
             if not config["no_cuda"]:
