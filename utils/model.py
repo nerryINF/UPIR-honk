@@ -245,8 +245,8 @@ class SpeechDataset(data.Dataset):
         config["train_pct"] = 80
         config["dev_pct"] = 10
         config["test_pct"] = 10
-        config["wanted_words"] = ["command", "random"]
-        config["data_folder"] = "/data/speech_dataset"
+        config["wanted_words"] = ["yes","no","up","down","left","right","on","off","stop","go"]
+        config["data_folder"] = "content/data/speech_dataset"
         config["audio_preprocess_type"] = "MFCCs"
         return config
 
@@ -377,9 +377,9 @@ class SpeechDataset(data.Dataset):
 
     def __len__(self):
         return len(self.audio_labels) + self.n_silence
-
+n_out_put=12
 _configs = {
-    ConfigType.CNN_TRAD_POOL2.value: dict(dropout_prob=0.5, height=101, width=40, n_labels=4, n_feature_maps1=64,
+    ConfigType.CNN_TRAD_POOL2.value: dict(dropout_prob=0.5, height=101, width=40, n_labels=n_out_put, n_feature_maps1=64,
         n_feature_maps2=64, conv1_size=(20, 8), conv2_size=(10, 4), conv1_pool=(2, 2), conv1_stride=(1, 1),
         conv2_stride=(1, 1), conv2_pool=(1, 1), tf_variant=True),
     ConfigType.CNN_ONE_STRIDE1.value: dict(dropout_prob=0.5, height=101, width=40, n_labels=4, n_feature_maps1=186,
