@@ -15,7 +15,7 @@
         "train_pct": 95,
         "n_epochs": "300",
         "dev_every": 5,
-        "data_folder": "/tmp/speech_dataset/",
+        "data_folder": "data/speech_dataset/",
         "output_file": "model/model.pt",
         "unknown_prob": 0.2,
         "gpu_no": 0
