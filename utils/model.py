@@ -246,7 +246,7 @@ class SpeechDataset(data.Dataset):
         config["dev_pct"] = 10
         config["test_pct"] = 10
         config["wanted_words"] = ["yes","no","up","down","left","right","on","off","stop","go"]
-        config["data_folder"] = "content/data/speech_dataset"
+        config["data_folder"] = "data/speech_dataset"
         config["audio_preprocess_type"] = "MFCCs"
         return config
 
@@ -320,7 +320,6 @@ class SpeechDataset(data.Dataset):
         unknowns = [0] * 3
         bg_noise_files = []
         unknown_files = []
-
         for folder_name in os.listdir(folder):
             path_name = os.path.join(folder, folder_name)
             is_bg_noise = False
