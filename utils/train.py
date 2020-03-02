@@ -94,7 +94,7 @@ def train(config):
     if config["input_file"]:
         model.load(config["input_file"])
     if not config["no_cuda"]:
-        torch.cuda.set_device(config["gpu_no"])
+        #torch.cuda.set_device(config["gpu_no"])
         model.cuda()
     optimizer = torch.optim.SGD(model.parameters(), lr=config["lr"][0], nesterov=config["use_nesterov"], weight_decay=config["weight_decay"], momentum=config["momentum"])
     schedule_steps = config["schedule"]
